@@ -1,17 +1,16 @@
 module.exports = ({ env }) => ({
   upload: {
     config: {
-      sizeLimit: 250 * 1024 * 1024, // 256mb in bytes
-      breakpoints: {
-        xlarge: 1920,
-        large: 1000,
-        medium: 750,
-        small: 500,
-        xsmall: 64,
-      },
+      provider: "aws-s3",
       providerOptions: {
-        localServer: {
-          maxage: 300000,
+        endpoint: env("S3_ENDPOINT"),
+        s3Options: {
+          accessKeyId: env("S3_KEY"),
+          secretAccessKey: env("S3_SECRET"),
+          params: {
+            ACL: env("AWS_ACL", "public-read"),
+            Bucket: env("S3_BUCKET"),
+          },
         },
       },
     },
