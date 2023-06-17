@@ -1,6 +1,5 @@
 module.exports = [
   "strapi::errors",
-  "strapi::security",
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::logger",
@@ -21,14 +20,14 @@ module.exports = [
             "data:",
             "blob:",
             "market-assets.strapi.io",
-            "sgp1.digitaloceanspaces.com",
+            "*.digitaloceanspaces.com",
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "market-assets.strapi.io",
-            "sgp1.digitaloceanspaces.com",
+            "*.digitaloceanspaces.com",
           ],
           upgradeInsecureRequests: null,
         },
